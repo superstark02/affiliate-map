@@ -1,7 +1,7 @@
 import React from 'react';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
-import { DragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import initialData from './initial-data';
 import Column from './column';
 import wp1 from "./images/wp1.jpg"
@@ -33,6 +33,19 @@ class App extends React.Component {
 
     console.log(destination, source, draggableId);
 
+    //removing from source column
+    var did = source.droppableId
+    var temp = this.state.columns[did].taskIds
+    var index = temp.indexOf(draggableId)
+    temp.splice(index, 1)
+    rdb.ref().child("columns").child(source.droppableId).child("taskIds").set(temp)
+
+    //adding to destination column
+    var did1 = destination.droppableId
+    var temp1 = this.state.columns[did1].taskIds
+    temp1.push(draggableId)
+    rdb.ref().child("columns").child(destination.droppableId).child("taskIds").set(temp1)
+
     const start = this.state.columns[source.droppableId];
     const finish = this.state.columns[destination.droppableId];
 
@@ -59,7 +72,7 @@ class App extends React.Component {
     }
 
     // Moving from one list to another
-    const startTaskIds = Array.from(start.taskIds);
+    /*const startTaskIds = Array.from(start.taskIds);
     startTaskIds.splice(source.index, 1);
     const newStart = {
       ...start,
@@ -81,13 +94,12 @@ class App extends React.Component {
         [newFinish.id]: newFinish,
       },
     };
-    this.setState(newState);
+    this.setState(newState);*/
   };
 
   componentDidMount(){
     //update();
     rdb.ref().on('value', (snapshot) => {
-      console.log(snapshot.val())
       this.setState(snapshot.val())
     });
   }

@@ -29,11 +29,11 @@ export default class Column extends React.Component {
 
   addItem = (id,taskIds) => {
     var i = parseInt(taskIds.length) + 1;
-    taskIds.push("task-"+i);
+    taskIds.push("task-1"+i);
     rdb.ref("/columns").child(id.toString()).child('taskIds').set(taskIds);
 
-    rdb.ref("/tasks").child("task-"+taskIds.length).set({
-      id: "task-"+taskIds.length,
+    rdb.ref("/tasks").child("task-1"+taskIds.length).set({
+      id: "task-1"+taskIds.length,
       content: "New Task Created"
     });
   }
