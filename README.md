@@ -40,7 +40,6 @@
     - npm start
 
 ## More information
-
     * Hosting Link : https://affinty-map.web.app/
     * Video : https://drive.google.com/file/d/1YFMy3DLDIFezlxw42Cqgj4A9AgCiiL1L/view?usp=sharing
 
