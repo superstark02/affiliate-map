@@ -24,7 +24,9 @@ const initialData = {
   },
   // Facilitate reordering of the columns
   columnOrder: ['column-1', 'column-2', 'column-3'],
-  disable: false
+  disable: false,
+  openInfo: false,
+  openSnack: true,
 };
 
 export default initialData;

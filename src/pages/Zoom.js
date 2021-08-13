@@ -9,6 +9,29 @@ import update from '../database/update';
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { rdb } from '../firebase'
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import { makeStyles } from '@material-ui/core/styles';
+import a from "../images/a.PNG"
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: '100%',
+        '& > * + *': {
+            marginTop: theme.spacing(2),
+        },
+    },
+}));
 
 const Container = styled.div`
   display: flex;
@@ -122,6 +145,10 @@ class Zoom extends React.Component {
         })
     }
 
+    handleCloseSnack = () => {
+        this.setState({ openSnack: false });
+    }
+
     componentDidMount() {
         //update();
         rdb.ref().on('value', (snapshot) => {
@@ -132,7 +159,44 @@ class Zoom extends React.Component {
     render() {
         if (this.state) {
             return (
-                <div style={{minHeight:'100vh'}} >
+                <div style={{ minHeight: '100vh' }} >
+                    <Snackbar open={this.state.openSnack} autoHideDuration={6000} onClose={this.handleCloseSnack}>
+                        <Alert onClose={this.handleCloseSnack} severity="info">
+                            Disable Pan And Zoom For Better Drag And Drop Experience
+                        </Alert>
+                    </Snackbar>
+                    <Dialog
+                        open={this.state.openInfo}
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">{"Introduction"}</DialogTitle>
+                        <DialogContent>
+                            <p>
+                                Hi there 👋, please read the following instructions:
+                            </p>
+                            <p>
+                                <ul>
+                                    <li>State is saved after refresh 🖖</li>
+                                    <li>
+                                        Find all the details here: <br></br>
+                                        <ol>
+                                            <li>Github</li>
+                                            <li>Video</li>
+                                            <li>Re-open this dialog box</li>
+                                        </ol>
+                                        <img src={a} width="300px" />
+                                    </li>
+                                </ul>
+                            </p>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose} color="primary" autoFocus>
+                                Ok
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                     <TransformWrapper
                         defaultScale={0.5}
                         defaultPositionX={200}
@@ -160,6 +224,19 @@ class Zoom extends React.Component {
                                             </div>
                                             <div className="btns" onClick={zoomOut} >
                                                 Zoom Out
+                                            </div>
+                                            <Link to="https://github.com/superstark02/affiliate-map" >
+                                                <div className="btns" >
+                                                    <img title="Go To Source Code" src="https://img.icons8.com/material-outlined/24/000000/github.png" width="15px" />
+                                                </div>
+                                            </Link>
+                                            <Link to="/" >
+                                                <div className="btns" >
+                                                    <img title="Go To Video" src="https://img.icons8.com/material-outlined/24/000000/video.png" width="15px" />
+                                                </div>
+                                            </Link>
+                                            <div className="btns" >
+                                                <img title="Open Info" src="https://img.icons8.com/material-outlined/24/000000/info.png" width="15px" />
                                             </div>
                                         </div>
                                     </div>
