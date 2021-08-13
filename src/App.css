@@ -50,6 +50,10 @@
 .btn{
   position: absolute;
   right: 0;
+  display: flex;
+}
+
+.btns{
   color: rgba(255, 255, 255, 0.7);
   font-size: 15px;
   font-weight: 500;
@@ -59,6 +63,6 @@
   border-radius: 4px;
   cursor: pointer;
 }
-.btn:hover{
+.btns:hover{
   background-color: rgba(0, 0, 0, 0.5);
 }

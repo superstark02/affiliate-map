@@ -18,6 +18,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 1px rbga(0,0,0,0.5);
+  height: fit-content;
 `;
 const Title = styled.div`
   padding: 8px;
