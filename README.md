@@ -1,5 +1,7 @@
 # Affinity Map - Dipit Sharma 2K19/CO/127 📋 
 
+#### If you still have quesries about the code, please free to contact me. This project was made in a few amount of time it may lack some efficiency 👍
+
 ## Features:
 
     - Add/Delet/Edit Highlights 
@@ -42,4 +44,4 @@
     - Hosting Link : https://affinty-map.web.app/
     - Video : https://drive.google.com/file/d/1YFMy3DLDIFezlxw42Cqgj4A9AgCiiL1L/view?usp=sharing
 
-### If you still have quesries about the code, please free to contact me. This project was made in a few amount of time it may lack some efficiency 👍
+
