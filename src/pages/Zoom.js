@@ -19,6 +19,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
 import a from "../images/a.PNG"
+import Loader from '../components/loader';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -219,12 +220,6 @@ class Zoom extends React.Component {
                                                     Disable Zoom
                                                 </div>
                                             </Link>
-                                            <div className="btns" onClick={zoomIn} >
-                                                Zoom In
-                                            </div>
-                                            <div className="btns" onClick={zoomOut} >
-                                                Zoom Out
-                                            </div>
                                             <Link to="https://github.com/superstark02/affiliate-map" >
                                                 <div className="btns" >
                                                     <img title="Go To Source Code" src="https://img.icons8.com/material-outlined/24/000000/github.png" width="15px" />
@@ -269,7 +264,7 @@ class Zoom extends React.Component {
             );
         }
         else {
-            return (<div>Loading</div>)
+            return (<div><Loader/></div>)
         }
     }
 }

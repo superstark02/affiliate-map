@@ -18,6 +18,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
+import Loader from '../components/loader';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -231,7 +232,7 @@ class Home extends React.Component {
             );
         }
         else {
-            return (<div>Loading</div>)
+            return (<div><Loader/></div>)
         }
     }
 }
