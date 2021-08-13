@@ -8,7 +8,7 @@ import wp1 from "./images/wp1.jpg"
 import wp2 from "./images/wp2.jfif"
 import "./App.css"
 import update from './database/update';
-import {rdb} from './firebase'
+import { rdb } from './firebase'
 
 const Container = styled.div`
   display: flex;
@@ -16,6 +16,10 @@ const Container = styled.div`
 
 class App extends React.Component {
   state = null;
+
+  other_state = {
+    open: false,
+  }
 
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
@@ -30,8 +34,6 @@ class App extends React.Component {
     ) {
       return;
     }
-
-    console.log(destination, source, draggableId);
 
     //removing from source column
     var did = source.droppableId
@@ -97,7 +99,19 @@ class App extends React.Component {
     this.setState(newState);*/
   };
 
-  componentDidMount(){
+  addColumn = () => {
+    var newOrder = this.state.columnOrder
+    newOrder.push("column-1" + this.state.columnOrder.length)
+    rdb.ref().child('columnOrder').set(newOrder);
+
+    rdb.ref().child('columns').child("column-1" + (this.state.columnOrder.length - 1)).set({
+      id: "column-1" + (this.state.columnOrder.length - 1),
+      title: "New Bucket",
+      taskIds: [""]
+    })
+  }
+
+  componentDidMount() {
     //update();
     rdb.ref().on('value', (snapshot) => {
       this.setState(snapshot.val())
@@ -105,7 +119,7 @@ class App extends React.Component {
   }
 
   render() {
-    if(this.state){
+    if (this.state) {
       return (
         <div className="wp" style={{ backgroundImage: "url(" + wp2 + ")" }} >
           <div className="app-bar" >
@@ -123,10 +137,10 @@ class App extends React.Component {
                 const tasks = column.taskIds.map(
                   taskId => this.state.tasks[taskId],
                 );
-  
-                return <Column key={column.id} column={column} tasks={tasks} />;
+
+                return <Column initialData={this.state} key={column.id} column={column} tasks={tasks} />;
               })}
-              <div className="add-col" >
+              <div className="add-col" onClick={() => { this.addColumn() }} >
                 <img width="15px" src="https://img.icons8.com/material-outlined/24/000000/add.png" />
                 Add Column
               </div>
@@ -135,8 +149,8 @@ class App extends React.Component {
         </div>
       );
     }
-    else{
-      return(<div>Loading</div>)
+    else {
+      return (<div>Loading</div>)
     }
   }
 }

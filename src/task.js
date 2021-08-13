@@ -60,10 +60,10 @@ export default class Task extends React.Component {
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle>
+          <DialogTitle id="alert-dialog-title">{"I hope you like the platform"}</DialogTitle>
           <DialogContent>
             <DialogContentText id="alert-dialog-description">
-              Enter you task: <input value={this.state.content} onChange={(e)=>{this.setState({content:e.target.value})}} />
+              Enter your task: <input value={this.state.content} onChange={(e)=>{this.setState({content:e.target.value})}} />
             </DialogContentText>
           </DialogContent>
           <DialogActions>
