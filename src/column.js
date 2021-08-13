@@ -13,7 +13,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const Container = styled.div`
   margin: 8px;
   border-radius: 4px;
-  width: 280px;
+  width: ${280}px;
   background-color: #ebecf0;
   display: flex;
   flex-direction: column;

@@ -8,10 +8,12 @@ import wp1 from "./images/wp1.jpg"
 import wp2 from "./images/wp2.jfif"
 import "./App.css"
 import update from './database/update';
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { rdb } from './firebase'
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 class App extends React.Component {
@@ -130,22 +132,34 @@ class App extends React.Component {
               Zoom In
             </div>
           </div>
-          <DragDropContext onDragEnd={this.onDragEnd} >
-            <Container>
-              {this.state.columnOrder.map(columnId => {
-                const column = this.state.columns[columnId];
-                const tasks = column.taskIds.map(
-                  taskId => this.state.tasks[taskId],
-                );
+          <TransformWrapper
+            defaultScale={1}
+            defaultPositionX={0}
+            defaultPositionY={0}
+            disabled={true}
+          >
+            {({ zoomIn, zoomOut, resetTransform, positionX, positionY, ...rest }) => (
+              <TransformComponent>
+                <DragDropContext onDragEnd={this.onDragEnd} >
+                  <Container>
+                    {this.state.columnOrder.map(columnId => {
+                      const column = this.state.columns[columnId];
+                      const tasks = column.taskIds.map(
+                        taskId => this.state.tasks[taskId],
+                      );
 
-                return <Column initialData={this.state} key={column.id} column={column} tasks={tasks} />;
-              })}
-              <div className="add-col" onClick={() => { this.addColumn() }} >
-                <img width="15px" src="https://img.icons8.com/material-outlined/24/000000/add.png" />
-                Add Column
-              </div>
-            </Container>
-          </DragDropContext>
+                      return <Column initialData={this.state} key={column.id} column={column} tasks={tasks} />;
+                    })}
+                    <div className="add-col" onClick={() => { this.addColumn() }} >
+                      <img width="15px" src="https://img.icons8.com/material-outlined/24/000000/add.png" />
+                      Add Column
+                    </div>
+                  </Container>
+                </DragDropContext>
+              </TransformComponent>
+            )}
+          </TransformWrapper>
+
         </div>
       );
     }
