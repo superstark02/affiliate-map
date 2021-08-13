@@ -3,7 +3,7 @@
 ## Features:
 
     - Add/Delet/Edit Highlights 
-        - ![Alt Text](./gifs/add_bucket.gif)
+    ![Add highlights](./gifs/add_bucket.gif)
 
     - Group/Move Highlights
     - Add/Delet/Edit Buckets

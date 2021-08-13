@@ -201,7 +201,7 @@ class Home extends React.Component {
                                     <img title="Go To Source Code" src="https://img.icons8.com/material-outlined/24/000000/github.png" width="15px" />
                                 </div>
                             </Link>
-                            <Link to="/" >
+                            <Link to="https://drive.google.com/file/d/1YFMy3DLDIFezlxw42Cqgj4A9AgCiiL1L/view?usp=sharing" >
                                 <div className="btns" >
                                     <img title="Go To Video" src="https://img.icons8.com/material-outlined/24/000000/video.png" width="15px" />
                                 </div>
