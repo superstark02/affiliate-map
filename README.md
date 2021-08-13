@@ -3,11 +3,11 @@
 ## Features:
 
     - Add/Delet/Edit Highlights 
-    ![Add highlights](./gifs/add_bucket.gif)
-
     - Group/Move Highlights
     - Add/Delet/Edit Buckets
     - Zoom In/Out Affinity Map 
+
+![Add highlights](./gifs/add_bucket.gif)
 
 ## Folder Architecture (src) :
 
