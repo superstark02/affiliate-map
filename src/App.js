@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import Zoom from './components/Zoom';
+import Home from './pages/Home';
+import Zoom from './pages/Zoom';
 
 function App() {
   return (

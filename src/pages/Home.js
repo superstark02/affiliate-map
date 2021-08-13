@@ -2,14 +2,11 @@ import React from 'react';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import initialData from './initial-data';
-import Column from './column';
-import wp1 from "./images/wp1.jpg"
-import wp2 from "./images/wp2.jfif"
-import "./App.css"
-import update from './database/update';
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import { rdb } from './firebase'
+import Column from '../components/column';
+import wp2 from "../images/wp2.jfif"
+import "../App.css"
+import update from '../database/update';
+import { rdb } from '../firebase'
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`

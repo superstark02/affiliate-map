@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Droppable } from 'react-beautiful-dnd';
 import Task from './task';
-import { rdb } from './firebase'
+import { rdb } from '../firebase'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -15,7 +15,6 @@ const Container = styled.div`
   border-radius: 4px;
   width: ${280}px;
   background-color: #ebecf0;
-  display: flex;
   flex-direction: column;
   box-shadow: 1px 1px 1px rbga(0,0,0,0.5);
   height: fit-content;

@@ -1,10 +1,8 @@
 import React from 'react';
 import '@atlaskit/css-reset';
 import styled from 'styled-components';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import initialData from '../initial-data';
-import Column from '../column';
-import wp1 from "../images/wp1.jpg"
+import { DragDropContext } from 'react-beautiful-dnd';
+import Column from '../components/column';
 import wp2 from "../images/wp2.jfif"
 import "../App.css"
 import update from '../database/update';
@@ -15,8 +13,9 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
-  height: 93vh;
+  min-height: 93vh;
   align-items: flex-start;
+  min-width: 93vw;
 `;
 
 const ParentContainer = styled.div`
@@ -135,7 +134,7 @@ class Zoom extends React.Component {
             return (
                 <div style={{minHeight:'100vh'}} >
                     <TransformWrapper
-                        defaultScale={1}
+                        defaultScale={0.5}
                         defaultPositionX={200}
                         defaultPositionY={100}
                         disabled={this.state.disable}
