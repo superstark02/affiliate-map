@@ -1,12 +1,14 @@
 # Affinity Map - Dipit Sharma 2K19/CO/127
 
-Features:
+## Features:
+
     - Add/Delet/Edit Highlights
     - Group/Move Highlights
     - Add/Delet/Edit Buckets
     - Zoom In/Out Affinity Map 
 
-Folder Architecture (src) :
+## Folder Architecture (src) :
+
     - components ( contains buckets, highlights rendering coponents )
         - column.js
         - tasks.js
@@ -20,11 +22,13 @@ Folder Architecture (src) :
     
     - data ( contains initial data )
 
-To set Up On Local Machine:
+## To set Up On Local Machine:
+
     - clone this git
     - run npm i
     - run npm start
 
-More information:
+## More information:
+
     - Hosting Link
     - Video
