@@ -35,9 +35,9 @@
 
 ## To set Up On Local Machine:
 
-    - clone this git
-    - run npm i
-    - run npm start
+    - git clone https://github.com/superstark02/affiliate-map.gitt
+    - npm i
+    - npm start
 
 ## More information:
 
