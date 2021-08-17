@@ -196,16 +196,16 @@ class Home extends React.Component {
                                     Pan And Zoom
                                 </div>
                             </Link>
-                            <Link to="https://github.com/superstark02/affiliate-map" >
+                            <a href="https://github.com/superstark02/affiliate-map" >
                                 <div className="btns" >
                                     <img title="Go To Source Code" src="https://img.icons8.com/material-outlined/24/000000/github.png" width="15px" />
                                 </div>
-                            </Link>
-                            <Link to="https://drive.google.com/file/d/1YFMy3DLDIFezlxw42Cqgj4A9AgCiiL1L/view?usp=sharing" >
+                            </a>
+                            <a href="https://drive.google.com/file/d/1YFMy3DLDIFezlxw42Cqgj4A9AgCiiL1L/view?usp=sharing" >
                                 <div className="btns" >
                                     <img title="Go To Video" src="https://img.icons8.com/material-outlined/24/000000/video.png" width="15px" />
                                 </div>
-                            </Link>
+                            </a>
                             <div className="btns" >
                                 <img title="Open Info" onClick={() => { this.setState({ openInfo: true }) }} src="https://img.icons8.com/material-outlined/24/000000/info.png" width="15px" />
                             </div>
